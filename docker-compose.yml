@@ -1,0 +1,16 @@
+version: '3'
+services:
+  resume:
+    container_name: HomeAutomation
+    build: "./"
+    volumes:
+      - "./app/publicFiles:/app/publicFiles"
+    ports:
+      - "82:80"
+    restart: always
+    environment:
+     VIRTUAL_HOST: 192.168.1.104
+networks:
+  default:
+    external:
+      name: nginx-proxy
